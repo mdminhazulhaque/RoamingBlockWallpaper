@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.minhazulhaque.apps.roamingblockwallpaper" >
+
+    <uses-feature
+        android:name="android.software.live_wallpaper"
+        android:required="true" >
+    </uses-feature>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="Live Wallpaper"
+        android:theme="@style/Theme.AppCompat.Light" >
+
+        <service
+            android:name=".RoamingBlockWallpaperService"
+            android:enabled="true"
+            android:label="RoamingBlockWallpaper"
+            android:permission="android.permission.BIND_WALLPAPER" >
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" >
+                </action>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/wallpaper" >
+            </meta-data>
+        </service>
+
+    </application>
+
+</manifest>
